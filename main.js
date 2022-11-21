@@ -198,11 +198,21 @@ function parseText(raw) {
     for (var i = 0; i < lines.length; i++) {
         var ln = lines[i];
         var p = document.createElement("p");
+        if (ln.startsWith("~")) {
+            ln = ln.substring(1)
+            p.classList.add("shake")
+        }
         p.innerText = ln;
         text.appendChild(p);
     }
     index.style.display = 'none';
     page.style.display = '';
+
+    if (window.afterParse){
+        for (let f of window.afterParse){
+            f()
+        }
+    }
 }
 function setPrev(i) {
     var prev = document.getElementById("prevBtn");
