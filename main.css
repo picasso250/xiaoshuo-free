@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #7b1a36;
+    color: #eccacb;
+    font-size: small;
+    text-align: center;
+    padding: 0.3em 0;
+}
+
+#indexList a {
+    text-decoration: none;
+    line-height: 2em;
+}
+
+.pattern-zigzag-sm {
+    background: linear-gradient(135deg, #fffdf6 25%, transparent 25%) -10px 0, linear-gradient(225deg, #fffdf6 25%, transparent 25%) -10px 0, linear-gradient(315deg, #fffdf6 25%, transparent 25%), linear-gradient(45deg, #fffdf6 25%, transparent 25%);
+    background-size: auto, auto, auto, auto;
+    background-size: calc(2 * 10px) calc(2 * 10px);
+}
+
+.container {
+    max-width: 40em;
+    color: black;
+    margin: auto;
+}
+
+.container-inner {
+    padding: 0.5rem;
+}
+
+h1 {
+    padding: 0 0.7em;
+}
+
+h2 {
+    text-align: center;
+}
+
+#text p {
+    line-height: 1.7em;
+    text-indent: 2em;
+}
+
+#authorSay {
+    background: #fffcf1;
+    border: 1px solid #cc8600;
+    padding: 0.5em;
+    line-height: 1.5em;
+    font-size: small;
+}
+
+#authorSay::before {
+    content: "作者的话：";
+    display: block;
+    line-height: 1.5em;
+    font-size: small;
+    color: #c66931;
+}
+
+.nav {
+    margin: 1em;
+    display: flex;
+}
+
+.nav a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    flex: 1;
+    text-align: center;
+}
+
+.money {
+    margin: 10px 0;
+    font-size: small;
+    color: #1777ff;
+    text-align: center;
+}
+
+.money div {
+    margin: 10px;
+}
+
+.money img {
+    max-width: 100%;
+    display: block;
+    margin: auto;
+}
