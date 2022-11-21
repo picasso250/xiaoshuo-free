@@ -18,7 +18,10 @@ var page;
 function onGoto(event) {
     goToPage(getIndexData(event.target));
 }
+var indexList = document.getElementById("indexList");
+var authorSay = document.getElementById("authorSay");
 function loaded() {
+    authorSay.style.display = 'none'
     index = document.getElementById("index");
     page = document.getElementById("page");
     var i = getWantIndex();
@@ -28,18 +31,17 @@ function loaded() {
         goToPage(i);
     }
 
-    var idx = getIndexFromLocal(); // ok
-    showIndex(idx, 0); // ok
-    loadIndexFromNet(idx.length); // ok
+    // var idx = getIndexFromLocal(); // ok
+    // showIndex(idx, 0); // ok
+    loadIndexFromNet(); // ok
     var prevBtn = document.getElementById("prevBtn").addEventListener("click", onGoto);
     var nextBtn = document.getElementById("nextBtn").addEventListener("click", onGoto);
     var indexBtn = document.getElementById("indexBtn").addEventListener("click", function () {
-        var idx = getIndexFromLocal(); // ok
-        showIndex(idx); // ok
-        getLatestIndex();  // ok
-        loadIndexFromNet(idx.length); // ok
+        // var idx = getIndexFromLocal(); // ok
+        showIndex(); // ok
+        // getLatestIndex();  // ok
+        // loadIndexFromNet(idx.length); // ok
     });
-    var indexList = document.getElementById("indexList");
     indexList.children[0].children[0].addEventListener("click", onGoto);
 }
 function goToPage(i) {
@@ -65,27 +67,23 @@ function getIndexFromLocal() {
     }
     return [];
 }
-function showIndex(idx) {
-    if (idx.length > 0) {
-        var n;
-        n = idx.length;
-        for (var i = 0; i < n; i++) {
-            indexTitleSet(i, idx[i]);
-        }
-    }
+function showIndex() {
     page.style.display = 'none';
     index.style.display = '';
 }
 
 function loadIndexFromNet(i) {
-    var fname = (i + 1) + ".html";
+    var fname = "toc.html";
     loadFile(fname, function (data) {
-        var title = getTitle(data);
-        indexCacheSet(i, title); // ok
-        indexTitleSet(i, title); // ok
-        loadIndexFromNet(i + 1);
+        indexList.innerHTML = data
+        for (let i = 0; i < indexList.children.length; i++) {
+            let a = indexList.children[i]
+            let index = i
+            a.addEventListener("click", function () {
+                goToPage(index)
+            })
+        }
     }, function () {
-        latest = i;
     });
 }
 function loadPageFromCache(i) {
@@ -184,7 +182,6 @@ function parseText(raw) {
     var t = lines.shift()
     var title = document.getElementById("title");
     var text = document.getElementById("text");
-    var authorSay = document.getElementById("authorSay");
     authorSay.style.display = "none";
 
     title.innerHTML = "";
