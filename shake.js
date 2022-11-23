@@ -1,4 +1,5 @@
-window.afterParse = [] || window.afterParse;
+window.afterParse = window.afterParse || [];
+
 window.afterParse.push(function () {
 
     let splitUTF8 = function (s) {
