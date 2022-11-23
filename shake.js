@@ -15,9 +15,10 @@ window.afterParse.push(function () {
     let toSpan = function (t) {
         let s = document.createElement('span')
         s.textContent = t
-        s.style.display = "block"
-        s.style.float = "left"
+        s.style.display = "flex"
+        // s.style.float = "left"
         s.style.textIndent = "0"
+        // s.style.flexWrap = "wrap"
         return s
     }
 
