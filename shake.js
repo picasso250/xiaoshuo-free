@@ -38,6 +38,8 @@ window.afterParse.push(function () {
                     let dx = Math.random() * distMax * 2 - distMax
                     let dy = Math.random() * distMax * 2 - distMax
                     eee.style.transform = "translate3d(" + dx + "px, " + dy + "px, 0)"
+                    let opacityFrom = 70;
+                    eee.style.opacity = Math.round(50 + Math.random() * (100 - opacityFrom)) + "%"
                 }
             })
         }
