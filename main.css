@@ -88,7 +88,7 @@ h2 {
 }
 
 .money img {
-    max-width: 100%;
+    max-width: 30em;
     display: block;
     margin: auto;
 }
