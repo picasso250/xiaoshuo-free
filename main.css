@@ -92,3 +92,8 @@ h2 {
     display: block;
     margin: auto;
 }
+
+.shake {
+    display: flex;
+    flex-wrap: wrap;
+}
